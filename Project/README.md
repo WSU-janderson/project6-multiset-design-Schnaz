@@ -27,13 +27,32 @@ II. Design Philosophy
 
     This game needed an inventory system that can hold an item name to be referenced through text, and a number to contain the number of the item the player carries. Additionally, the inventory had to maintain some sort of order so that an item can be easily found when a user checks their inventory. An AVL tree was chosen to handle the inventory as it keeps all the items in alphabetical order, which is rather handy as the inventory gets really large late game. Readability was prioritized over speed when choosing the datastructure, as maintaining the inventory in an organized format is much more important. Text based games are not affected adversely by lag (and are not performance heavy on top of that), but having to sift through an extensive unorderly inventory would undoubtedly ruin a player's experience. The primary user of this AVL tree is the player, not the developer, so having a readable inventory is vital. 
 
+---
+
 <h4 align="center">
 III. Core Operations
 </h4>
 
-<p>
-    
-</p>
+    There are 4 operations that this design needs to implement:
+
+1. ReadInv()
+
+- This prints out a list of items in alphabetical order alongside the quantity of each item
+- Using a recursive function to execute an inorder traversal, each item's name is printed along with its quantity. Naturally, the result would be in alphabetical order
+- The time complexity is O(N)
+- The only edge case is that a node checks if there is a non-null child before running the recursive function
+2. CheckItem(Item)
+
+- This returns the number of an item that the player has when given the item's name
+- By comparing keys This function recusively descends the tree until it either finds the key or a null pointer. This function is already implemented in the AVL tree's class
+- The Time complexity is O(log N)
+- The only edge case is that 0 is returned if the item is not found in the tree
+3. AddItem(Item, Quantity)
+
+- This adds X ammount of a certain item to a player's inventory
+- This runs the above function to check if 
+4. RemoveItem(Item, Quantity)
+
 
 <h4 align="center">
 IV. Set Operations
