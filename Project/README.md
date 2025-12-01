@@ -108,7 +108,7 @@ VI. UML Diagram / Abstraction Boundary
 
 | Inventory   |
 | -------- |
-| - Tree  |
+| + Tree  |
 | -------------------------------------- |
 | Inventory() |
 | ~Inventory() |
