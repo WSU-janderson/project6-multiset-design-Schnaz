@@ -48,13 +48,6 @@ funct() {
 #### CheckItem(Item)
     This function returns the number of a given item within the inventory. By using a recursive helper function to compare keys in the AVLTree, this function descends the tree until it finds either the key or a null pointer and removes the key if it is found. As this behavior is already implemented in the AVL tree's class, it can be implemented by simply calling the AVLTree's function. As only one branch of the tree needs to be traversed, the time complexity is only O(log N). The only edge case is that 0 is returned if the item is not found in the tree.
 
-```
-//do thing
-funct() {
-
-}
-```
-
 #### AddItem(Item, Quantity)
     This function adds a number of an item to the inventory. By using a recursive helper function to compare keys in the AVLTree, this function descends the tree until it either finds the key or a null pointer and adds the item to the inventory if a null pointer is found.  This behavior is mostly implemented in the AVLTree's class, with the catch that extra funtionality must be added to increase the count of any preexisting items. Since the AVLTree's fuction for adding an item returns false if the item already exists, an if statement can be used with the operator[] overload in order to increment the number of the item by the input quantity. This function can descend the branch up to twice, which would still be a time complexity of O(log N). The aforementioned base case is that if the item is found in the inventory, its number should be increased by the input quantity
 
@@ -85,9 +78,23 @@ IV. Set Operations
 
     This function is handy for when you defeat an enemy or open a chest taking all the loot. Two inventories need to be combind in either case. This is done with a inorder traversal implemented through a recursive helper function that runs the aforementioned AddItem function with every item to add it to the player's inventory. This would have a time complexity of O(N log N), due to the inorder traversal (N) and needing to descend a branch each time (log N). Luckily, there are no edge cases that are not handled in AddItem already.
 
+```
+//do thing
+funct() {
+
+}
+```
+
 #### IntersectionWith(Inventory)
 
     This function is used to filter an inventory by only returning items shared with another inventory. In game this would be used by the dev to modify loot tables, perhaps using the second inventory to restrict what can show up in the first. This would then allows for the implementation of certain perks that lift these restrictions and let players earm more from any of these restricted loot tables. This would do an inorder traversal of the target's inventory running the aforementioned CheckItem function on the player's tree with each item found in the target's tree. For each item (key), the smaller of the two values (one from CheckItem, the other directly accessed) is added along with the corresponding item to a new inventory using AddItem. The new inventory keeps track of the items shared by the two inventories. This would have a time complexity of O(N log N), due to the inorder traversal (N) and needing to descend a branch twice each time (log N). There are no edge cases beyond checking for child nodes before engaging in recursion.
+
+```
+//do thing
+funct() {
+
+}
+```
 
 ---
 
@@ -100,29 +107,39 @@ V. Extension Feature
 
     This function does an inorder traversal (using recursion) of the current inventory running CheckItem for every key. If the returned value is less than the value of the current item, the function immediately returns false all the way up the chain of recursion. If the function manages to complete without termination, another inorder traversal of the same inventory is done, with each item and its quantity being removed using Remove item. Then the function would return true. The time complexity would be O(N log N), due to the inorder traversal (N) and needing to descend a branch twice each time (log N). An entire inorder traversal is done to handle the edge case where the subtracting inventory is bigger.
 
+```
+//do thing
+funct() {
+
+}
+```
+
 ---
 
 <h4 align="center">
 VI. UML Diagram / Abstraction Boundary
 </h4>
 
+<div align="center">
+
 | Inventory   |
 | -------- |
-| + Tree  |
+| + AVLNode* root |
 | -------------------------------------- |
-| Inventory() |
-| ~Inventory() |
 | + string ReadInv() |
-| + size_t CheckItem(Item) |
-| + void AddItem(Item, Quantity) |
-| + RemoveItem(Item, Quantity) |
-| + UnionWith(Inventory) |
-| - UnionHelper(*AVLNode) |
-| + IntersectionWith(Inventory) |
-| - IntersectionHelper(*AVLNode) |
-| + bool UseInventory(Inventory) |
-| - bool CheckHelper(*AVLNode) |
-| - void RemoveHelper(*AVLNode) |
+| - ReadHelper(AVLNode*: Node) |
+| + size_t CheckItem(string: Item) |
+| + void AddItem(string: Item, size_t: Quantity) |
+| + RemoveItem(string: Item, size_t: Quantity) |
+| + UnionWith(inventory: Inventory) |
+| - UnionHelper(AVLNode*) |
+| + IntersectionWith(inventory: Inventory) |
+| - IntersectionHelper(AVLNode*: Node) |
+| + bool UseInventory(inventory: Inventory) |
+| - bool CheckHelper(AVLNode*: Node) |
+| - void RemoveHelper(AVLNode*: Node) |
+
+</div>
 
 ---
 
