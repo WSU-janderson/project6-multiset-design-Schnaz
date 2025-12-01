@@ -35,23 +35,25 @@ III. Core Operations
 
     There are 4 operations that this design needs to implement:
 
-1. ReadInv()
+#### Inventory.ReadInv()
+    This function prints out a list of items alongside its quantity in the inventory. Using a recursive helper function to execute an inorder traversal, each item's name is printed along with its quantity. This also has the benefit of displaying each item in alphabetical order by default due to the AVLTree sorting the keys as they are put in. Since each key needs to be read once, this function would have a time complexity of O(N). Lastly, the only edge case would be checking for non-null node before continuing down either branch for recursion.
+    
+```
+//do thing
+funct() {
 
-- This prints out a list of items in alphabetical order alongside the quantity of each item
-- Using a recursive function to execute an inorder traversal, each item's name is printed along with its quantity. Naturally, the result would be in alphabetical order
-- The time complexity is O(N)
-- The only edge case is that a node checks if there is a non-null child before running the recursive function
-2. CheckItem(Item)
+}
+```
 
-- This returns the number of an item that the player has when given the item's name
-- By comparing keys This function recusively descends the tree until it either finds the key or a null pointer. This function is already implemented in the AVL tree's class
+#### Inventory.CheckItem(Item)
+    This function returns the number of a given item within the inventory. By comparing keys in the AVLTree This function recusively descends the tree until it either finds the key or a null pointer. This function is already implemented in the AVL tree's class
 - The Time complexity is O(log N)
 - The only edge case is that 0 is returned if the item is not found in the tree
-3. AddItem(Item, Quantity)
+#### AddItem(Item, Quantity)
 
 - This adds X ammount of a certain item to a player's inventory
 - This runs the above function to check if 
-4. RemoveItem(Item, Quantity)
+#### RemoveItem(Item, Quantity)
 
 
 <h4 align="center">
