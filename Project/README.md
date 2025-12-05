@@ -190,10 +190,10 @@ VIII. Alternative Design Sketch
 IX. Evaluation Plan
 </h4>
 
-    Naturally an Inventory needs to be tested after being implemented. To do this I would run each function, running readInv to see how the inventory updates each time. Beyond just checking every function, I would need to check each function's edge cases. That means running readInv() with an empty inventory, running addItem() after the item exists in the inventory, running removeItem for each of its four edge cases, and running useInventory with an insufficient inventory.
+    Naturally an Inventory needs to be tested after being implemented. To do this I would run each function, running readInv to see how the inventory updates each time. Beyond just checking every function, I would need to check each function's edge cases. That means running readInv() with an empty inventory, running addItem() after the item exists in the inventory, running removeItem for each of its four edge cases, and running useInventory with an insufficient inventory. I could also easily swap out the AVLTree with a HashTable and do a bit of testing to see if the two datatypes can be made interchangeable, as that would add some nice versatility to the game's inventory system.
 
 <h4 align="center">
 X. Conclusion / Reflection
 </h4>
 
-
+    All in all, Object Composition seems to have worked out just fine for this Inventory. Using AVLTree object with encapsulation (making the AVLTree member private) should help prevent devs from messing with with the Inventory system in a way that would prevent swapping out the underlying AVLTree for something else. The Inventory class is using abstraction to hide the AVLTree so that it can be used as an interchangeable part of a fully functional Multiset. At first abstraction wasn't even considered in this project, but after seeing how it can be used to hide details and make parts of code versatile, it can be said that limiting what is visible can allow one to see the bigger picture. 
