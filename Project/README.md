@@ -147,7 +147,7 @@ VI. UML Diagram / Abstraction Boundary
 | Inventory   |
 | -------- |
 | - AVLTree Tree |
-| -------------------------------------- |
+| ------------------------------------------------------- |
 | + void readInv() |
 | + size_t checkItem(string: Item) |
 | + void addItem(string: Item, size_t: Quantity) |
